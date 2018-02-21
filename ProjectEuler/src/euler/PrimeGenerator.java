@@ -10,26 +10,27 @@ import java.util.Scanner;
  **/
 
 public class PrimeGenerator {
-
-	public static Integer[] primes(int limit) {
-		List<Integer> list = new ArrayList<Integer>();
-		for (int i = 1; i < (limit / 2 + 1); i++) {
-			boolean prime = true;
-			if (i % 2 == 0) {
+	
+	public static boolean isPrime(long num) {
+		boolean prime = true;
+		for (long i = 2; i < num / 2; i++) {
+			if (num % i == 0) {
 				prime = false;
-			} else {
-				for (int j = 3; j * j < (i / 2 + 1); j += 2) {
-					if (i % j == 0) {
-						prime = false;
-					}
-				}
-			}
-			if (prime = true) {
-				list.add(i);
+				break;
 			}
 		}
-		Integer[] arr = new Integer[list.size()];
-		return list.toArray(arr);
+		return prime;
+	}
+	
+	public static Long[] getPrimes(long num) { //starts in the middle of the number, going downwards
+		List<Long> longs = new ArrayList<Long>();
+		for (long i = num / 2; i > 0; i--) {
+			if (isPrime(i)) {
+				longs.add(i);
+			}
+		}
+		Long[] arr = new Long[longs.size()];
+		return longs.toArray(arr);
 	}
 
 	public static void main(String[] args) {
@@ -38,8 +39,19 @@ public class PrimeGenerator {
 		System.out.print("Enter the limit to find primes: ");
 		int limit = in.nextInt();
 		in.close();
-		Integer[] array = primes(limit);
+		Long[] array = getPrimes(limit);
+//		Integer[] array2 = primes(limit);
 		System.out.println("The primes are:\n" + Arrays.toString(array));
+		int i = 1;
+		for (long a:array) {
+			if (i % 20 == 0) {
+				System.out.println();
+				i = 1;
+			}
+			System.out.print(a + " ");
+			i++;
+		}
+//		System.out.println("Array2: " + Arrays.toString(array2));
 	}
 
 }

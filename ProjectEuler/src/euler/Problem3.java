@@ -8,12 +8,16 @@ public class Problem3 {
 
 	public static void main(String[] args) {
 
-		long numba = 13195;
-		for (long i = 1; i <= numba / 2; i++) {
-			for (long j = 1; j < i / 2; j++) {
-				
+		long numba = 6008514751L;
+		final long start = System.currentTimeMillis();
+		Long[] array = PrimeGenerator.getPrimes(numba / 2);
+		for (int i = array.length - 1; i >= 0; i--) {
+			if (numba % array[i] == 0) {
+				System.out.println("Prime factor found: " + array[i]);
 			}
 		}
+		final long stop = System.currentTimeMillis();
+		System.out.println("Execution time was " + (stop - start) + "ms.");
 	}
 
 }
