@@ -61,7 +61,7 @@ public class Problem3MTv2 {
 		if (in.nextInt() == 0) {
 			limit = 1319517;
 		} else {
-			limit = 60085147514L;
+			limit = 600851475143L;
 		}
 		in.close();
 
