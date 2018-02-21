@@ -5,7 +5,7 @@ public class Problem8 {
 	public static int[] getArray(String s, int offset) {
 		int[] num = new int[13];
 		for (int i = 0; i < 13; i++) {
-			num[i] = (int) s.charAt(i + offset);
+			num[i] = Character.getNumericValue(s.charAt(i + offset));
 		}
 		return num;		
 	}
