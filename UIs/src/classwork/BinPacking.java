@@ -6,10 +6,6 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
-/** Created by V Krasauskas 
-/** 
-/** Created on Mar 8, 2018 */ 
-
 public class BinPacking {
 
 	private static final int binLimit = 10;
@@ -44,7 +40,7 @@ public class BinPacking {
 		boolean[] objectAssigned = new boolean[weights.length]; // array to track which objects have been assigned already
 		ArrayList<int[]> result = new ArrayList<int[]>(); // list of int[] to be returned
 		for (int i = 0; i < weights.length; i++) {
-			ArrayList<Integer> currentBin = new ArrayList<Integer>(); // list to store the values of the weights in currrent bin
+			ArrayList<Integer> currentBin = new ArrayList<Integer>(); // list to store the values of the weights in current bin
 			int currentBinWeight = 6;
 			if (!objectAssigned[i]) {
 				currentBin.add(weights[i]);
@@ -98,7 +94,7 @@ public class BinPacking {
 		int num = in.nextInt();
 		in.close();
 		for (int i = 0; i < num; i++) {
-			input += (ran.nextInt(binLimit - 1) + 1) + " "; //-1 to not go over the bin size, +1 to not have zeroes
+			input += (ran.nextInt(binLimit) + 1) + " "; //+1 to not have zeroes
 		}
 //========================End of random numbers===========================
 		ArrayList<Integer> list = new ArrayList<Integer>();
